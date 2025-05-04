@@ -2,13 +2,14 @@ const express=require('express');
 const router=express.Router();
 
 
-const {registerUser,loginUser}=require('../controller')
+const {registerUser,getCurrentUser}=require('../controller')
+const sessionAuth = require('../middleware/sessionAuth');
 
 
 //POST /api/auth/resgister
-router.post('/register',register);
+router.post('/register',registerUser);
 
 //POST /api/auth/login
-router.post('//login',loginUser);;
+router.post('/me',sessionAuth, getCurrentUser);
 
 module.exports=router;
