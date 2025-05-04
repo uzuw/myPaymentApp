@@ -1,7 +1,7 @@
 const User=require('../models/User')
 const {v4:uuidv4} =require('uuid')
 
-const registerUser=async(req,res)=>{P
+const registerUser=async(req,res)=>{
     try{
         const {name, email, phone, address, esewaId, utilityAccounts}=req.body;
 

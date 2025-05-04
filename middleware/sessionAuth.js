@@ -1,4 +1,4 @@
-const User=require('../modles/User');
+const User=require('../models/User');
 
 const sessionAuth=async (req,res,next ) =>{
     try{

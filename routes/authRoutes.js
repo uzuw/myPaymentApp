@@ -2,7 +2,7 @@ const express=require('express');
 const router=express.Router();
 
 
-const {registerUser,getCurrentUser}=require('../controller')
+const {registerUser,getCurrentUser}=require('../controllers/authController')
 const sessionAuth = require('../middleware/sessionAuth');
 
 

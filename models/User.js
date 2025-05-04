@@ -16,7 +16,7 @@ const userSchema=new mongoose.Schema({
     sessionToken:{type:String, required:true},
     UtilityAccounts:utilityAccountSchema,
 }   ,{
-    timestamps:ture
+    timestamps:true
     });
 
 module.exports=mongoose.model('User',userSchema)

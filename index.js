@@ -12,14 +12,15 @@ app.use(cors());
 app.use(express.json());
 
 // //Routes
-// const authRoutes=require('');
-// app.use('/api/users',userRoutes);
+
 
 //default route
 app.get('/',(req,res)=>{
     res.send("Home Utility Payment api is running...")
 });
-
+//auth routes
+const authRoutes=require('./routes/authRoutes') 
+app.use('/api',authRoutes);
 
 //MongoDB Connection 
 const connectDB=require('./config/db');
