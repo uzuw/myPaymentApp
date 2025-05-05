@@ -22,6 +22,11 @@ app.get('/',(req,res)=>{
 const authRoutes=require('./routes/authRoutes') 
 app.use('/api',authRoutes);
 
+//payment route
+const paymentRoutes = require('./routes/paymentRoutes');
+app.use('/api/payments', paymentRoutes);
+
+
 //MongoDB Connection 
 const connectDB=require('./config/db');
 connectDB();
