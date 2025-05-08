@@ -18,6 +18,7 @@ app.use(express.json());
 app.get('/',(req,res)=>{
     res.send("Home Utility Payment api is running...")
 });
+
 //auth routes
 const authRoutes=require('./routes/authRoutes') 
 app.use('/api',authRoutes);
