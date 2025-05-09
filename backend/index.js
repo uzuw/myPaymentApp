@@ -8,10 +8,28 @@ dotenv.config();
 const app=express();
 
 //Middleware 
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:5713', // your frontend origin
+    credentials: true,              // allow cookies to be sent
+  }));
 app.use(express.json());
 
 // //Routes
+
+//session
+const session = require('express-session');
+
+app.use(session({
+  secret: 'your-secret',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: false, // true in production with HTTPS
+    httpOnly: true,
+    sameSite: 'lax'
+  }
+}));
+
 
 
 //default route
