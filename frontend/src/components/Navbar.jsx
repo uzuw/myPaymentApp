@@ -21,7 +21,7 @@ const Navbar = () => {
           Home
         </Link>
         <Link 
-          to="/payments" 
+          to="/history" 
           className="hover:text-green-700 hover:shadow-inner hover:shadow-gray-300 p-2 rounded-md transition-all duration-200"
         >
           Payments
