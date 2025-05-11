@@ -9,7 +9,7 @@ const app=express();
 
 //Middleware 
 app.use(cors({
-    origin: 'http://localhost:5713', // your frontend origin
+    origin: 'http://localhost:5173', // your frontend origin
     credentials: true,              // allow cookies to be sent
   }));
 app.use(express.json());
