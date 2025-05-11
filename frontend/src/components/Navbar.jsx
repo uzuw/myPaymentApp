@@ -7,7 +7,7 @@ const Navbar = () => {
   const token = false;
 
   return (
-    <div className="flex flex-row justify-between items-center px-6 py-3 bg-white shadow-md font-ibm">
+    <div className="flex sticky top-0 z-999 flex-row justify-between items-center px-6 py-3 bg-white shadow-md font-ibm">
       <Link to="/" className="flex items-center gap-2 text-xl font-bold text-green-600">
         <LocalMallOutlinedIcon className="text-green-600 font-bold" />
         PayIt
@@ -40,7 +40,7 @@ const Navbar = () => {
             to="/register" 
             className=" hover:shadow-inner p-2 rounded-md transition-all duration-200 border-2 border-gray-500 hover:scale-105"
           >
-            Register
+            Login/Register
           </Link>
         ) : (
           <Link 

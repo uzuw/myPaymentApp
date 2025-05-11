@@ -8,6 +8,7 @@ import Payment from "./pages/Payment";
 import PaymentHistory from "./services/PaymentHistory";
 import Services from './pages/Services'
 import PaymetnHistory from "./services/PaymentHistory";
+import Login from "./services/Login";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/Login" element={<Login />} />
         <Route path="/history" element={<PaymentHistory />} />
         <Route path="/services" element={<Services />} />
         <Route path="*" element={<NotFound />} />
