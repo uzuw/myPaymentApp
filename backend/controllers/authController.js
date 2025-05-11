@@ -39,7 +39,35 @@ const getCurrentUser=async (req,res) =>{
     res.json(req.user);
 }
 
+const loginUser = async (req, res) => {
+  const { esewaId } = req.body;
+
+  if (!esewaId) {
+    return res.status(400).json({ message: "eSewa ID is required" });
+  }
+
+  try {
+    const user = await User.findOne({ esewaId });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Generate a new session token
+    const sessionToken = uuidv4();
+    user.sessionToken = sessionToken;
+    await user.save();
+
+    // Return the session token
+    res.json({ sessionToken });
+  } catch (err) {
+    console.error("Login error:", err);
+    res.status(500).json({ message: "Server error during login" });
+  }
+};
+
 module.exports={
     registerUser,
     getCurrentUser,
+    loginUser,
 };
