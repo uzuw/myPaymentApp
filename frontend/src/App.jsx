@@ -9,6 +9,7 @@ import PaymentHistory from "./services/PaymentHistory";
 import Services from './pages/Services'
 import PaymetnHistory from "./services/PaymentHistory";
 import Login from "./services/Login";
+import Contact from "./pages/Contact";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/Login" element={<Login />} />
         <Route path="/history" element={<PaymentHistory />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

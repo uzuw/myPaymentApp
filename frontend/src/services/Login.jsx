@@ -18,6 +18,7 @@ const Login = () => {
       );
 
       const sessionToken = res.data.sessionToken;
+      console.log(sessionToken);
 
       if (sessionToken) {
         localStorage.setItem("sessionToken", sessionToken); // Store token locally
@@ -33,7 +34,7 @@ const Login = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-20 p-8 border rounded-lg shadow-lg">
+    <div className="max-w-md mx-auto mt-20 p-8 border  border-gray-100 rounded-lg shadow-lg">
       <h2 className="text-2xl font-semibold mb-6 text-center">Login</h2>
       <form onSubmit={handleLogin} className="space-y-4">
         <input
@@ -43,7 +44,7 @@ const Login = () => {
           value={esewaId}
           onChange={(e) => setEsewaId(e.target.value)}
           required
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border border-gray-300 rounded"
         />
 
         <button
