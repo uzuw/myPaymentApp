@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 
 const Navbar = () => {
-  // Check if the token is available in localStorage
-  const token = false;
+  const token = localStorage.getItem("sessionToken");
 
   return (
     <div className="flex sticky top-0 z-999 flex-row justify-between items-center px-6 py-3 bg-white shadow-md font-ibm">
@@ -38,7 +37,7 @@ const Navbar = () => {
         {!token ? (
           <Link 
             to="/register" 
-            className=" hover:shadow-inner p-2 rounded-md transition-all duration-200 border-2 border-gray-500 hover:scale-105"
+            className="hover:shadow-inner p-2 rounded-md transition-all duration-200 border-2 border-gray-500 hover:scale-105"
           >
             Login/Register
           </Link>
@@ -50,7 +49,7 @@ const Navbar = () => {
             <AccountCircleOutlinedIcon style={{ fontSize: "2rem" }} />
           </Link>
         )}
-        
+
         <Link 
           to="/contact" 
           className="text-white bg-gray-900 hover:shadow-inner hover:bg-gray-700 hover:scale-105 p-2 rounded-md transition-all duration-100"
@@ -60,6 +59,6 @@ const Navbar = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;
