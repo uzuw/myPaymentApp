@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [esewaId, setEsewaId] = useState("");
-  const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -13,28 +13,37 @@ const Login = () => {
     try {
       const res = await axios.post(
         "http://localhost:5000/api/login",
-        { esewaId }, // send esewaId as body
+        { esewaId },
         { withCredentials: true }
       );
 
       const sessionToken = res.data.sessionToken;
-      console.log(sessionToken);
 
       if (sessionToken) {
-        localStorage.setItem("sessionToken", sessionToken); // Store token locally
-        alert("Login successful!");
-        navigate("/"); // redirect to dashboard or home
+        localStorage.setItem("sessionToken", sessionToken);
+
+        toast.success("Login successful!", {
+          className: "bg-green-600 text-white font-medium rounded-lg",
+        });
+
+        setTimeout(() => {
+          navigate("/");
+          window.location.reload();
+        }, 1500); // Delay to show toast before redirect
       } else {
-        setMessage("Session token not received.");
+        toast.error("Session token not received.", {
+          className: "bg-red-600 text-white font-medium rounded-lg",
+        });
       }
     } catch (err) {
-      console.error("Login error", err);
-      setMessage(err.response?.data?.message || "Login failed");
+      toast.error(err.response?.data?.message || "Login failed", {
+        className: "bg-red-600 text-white font-medium rounded-lg",
+      });
     }
   };
 
   return (
-    <div className="max-w-md mx-auto mt-20 p-8 border  border-gray-100 rounded-lg shadow-lg">
+    <div className="max-w-md mx-auto mt-20 p-8 border border-gray-100 rounded-lg shadow-lg">
       <h2 className="text-2xl font-semibold mb-6 text-center">Login</h2>
       <form onSubmit={handleLogin} className="space-y-4">
         <input
@@ -54,10 +63,6 @@ const Login = () => {
           Login
         </button>
       </form>
-
-      {message && (
-        <p className="mt-4 text-center text-sm text-red-500">{message}</p>
-      )}
     </div>
   );
 };

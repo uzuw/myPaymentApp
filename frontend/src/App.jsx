@@ -10,7 +10,9 @@ import Services from './pages/Services'
 import PaymetnHistory from "./services/PaymentHistory";
 import Login from "./services/Login";
 import Contact from "./pages/Contact";
-
+import Profile from './pages/Profile';
+import { ToastContainer } from "react-toastify";
+import { Toaster } from "react-hot-toast";
 const App = () => {
   return (
     <>
@@ -22,8 +24,12 @@ const App = () => {
         <Route path="/history" element={<PaymentHistory />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
+       
       </Routes>
+       <ToastContainer position="top-center" autoClose={2000} />
+       <Toaster position="top-center" />
     </>
   );
 };
